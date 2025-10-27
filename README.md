@@ -23,9 +23,14 @@ _start: # _start is the entry point known to the linker
 # The same thing happens if you replace `call main` with `call foo` because it looks for foo then
 ```
 \*If you want it to run you need to either generate the assembly without standard library
+
 `gcc -S -nostdlib %.c -o %.s`
+
 Then assemble / link it from there, or you do it manually (as seen in the makefile)
+
 `as -o main.o main.s && ld -o main main.o`
+
 Both of them have equal compilation steps, just the linking stage is different
 > "This is where the magic happens"
+
 The code 
