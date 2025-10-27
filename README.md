@@ -19,6 +19,13 @@ _start: # _start is the entry point known to the linker
     xor %eax, %eax    # per ABI and compatibility with icc
     call _exit        # terminate the program
 # In compilation if you dont link crt0 you get entry point errors (cant find the entry point _start)
-# So if you rename main to _start you mitigate those issues (it wont run anyway though)
+# So if you rename main to _start you mitigate those issues (it wont run anyway though*)
 # The same thing happens if you replace `call main` with `call foo` because it looks for foo then
 ```
+\*If you want it to run you need to either generate the assembly without standard library
+`gcc -S -nostdlib %.c -o %.s`
+Then assemble / link it from there, or you do it manually (as seen in the makefile)
+`as -o main.o main.s && ld -o main main.o`
+Both of them have equal compilation steps, just the linking stage is different
+> "This is where the magic happens"
+The code 

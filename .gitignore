@@ -1,6 +1,1 @@
-header.h.gch
-main.d
-main.i
-main.s
-main.o
-main
+.build/**
