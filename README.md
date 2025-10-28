@@ -28,9 +28,7 @@ _start: # _start is the entry point known to the linker
 
 Then assemble / link it from there, or you do it manually (as seen in the makefile)
 
-`as -o main.o main.s && ld -o main main.o`
+`as -o %.o %.s && ld -o % %.o`
 
 Both of them have equal compilation steps, just the linking stage is different
 > "This is where the magic happens"
-
-The code 
